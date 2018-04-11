@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Column : MonoBehaviour {
-
+public class Coin : MonoBehaviour {
     private float scrollingSpeed = 2f;
-
+    // Use this for initialization
     void Start () {
 		
 	}
 	
+	// Update is called once per frame
 	void Update () {
         if (GameController.instance.gameOver == false)
         {
@@ -19,6 +19,15 @@ public class Column : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
     }
 }
